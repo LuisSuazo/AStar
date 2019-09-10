@@ -28,14 +28,20 @@ int main(int narc,char **argv){
     GraphPath *path1=AStar_2(Start,Goal,Grafo,h);
     high_resolution_clock::time_point fin = high_resolution_clock::now();
     duration<double> time_span = duration_cast<duration<double>>(fin - inicio);
-    cout<<"ASTAR H Perfecta;valor:"<<path1->weight<<";path size:"<<path1->path.size()<<";expandidos:"<<path1->expandidos<<";tiempo:"<<time_span.count()<<endl;
+    cout<<"ASTAR Binary;valor:"<<path1->weight<<";path size:"<<path1->path.size()<<";expandidos:"<<path1->expandidos<<";tiempo:"<<time_span.count()<<endl;
     inicio = high_resolution_clock::now();
     GraphPath *path2=AStar(Start,Goal,Grafo,h);
     fin = high_resolution_clock::now();
     time_span = duration_cast<duration<double>>(fin - inicio);
-    cout<<"ASTAR Euclidiana;valor:"<<path2->weight<<";path size:"<<path2->path.size()<<";expandidos:"<<path2->expandidos<<";tiempo:"<<time_span.count()<<endl;
+    cout<<"ASTAR Fibo progra;valor:"<<path2->weight<<";path size:"<<path2->path.size()<<";expandidos:"<<path2->expandidos<<";tiempo:"<<time_span.count()<<endl;
+    inicio = high_resolution_clock::now();
+    GraphPath *path3=AStar_3(Start,Goal,Grafo,h);
+    fin = high_resolution_clock::now();
+    time_span = duration_cast<duration<double>>(fin - inicio);
+    cout<<"ASTAR Fibo Boost;valor:"<<path3->weight<<";path size:"<<path3->path.size()<<";expandidos:"<<path3->expandidos<<";tiempo:"<<time_span.count()<<endl;
     c.clear();
     c.shrink_to_fit();
     h.clear();
     h.shrink_to_fit();
+    return 0;
 }

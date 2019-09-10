@@ -1,6 +1,7 @@
-#include "Estructura.hpp"
+#ifndef BinaryHeap_HPP
+#define BinaryHeap_HPP
 
-#define HEAPSIZE3 10000000
+#include "Estructura.hpp"
 
 struct BinaryHeap{
     lint Size;
@@ -80,7 +81,7 @@ struct BinaryHeap{
         return this->Size;
     }
 
-    Expandido *posheap3(int i){
+    Expandido *posheap(int i){
         return this->Elements[i];
     }
 
@@ -93,3 +94,4 @@ struct BinaryHeap{
 
 };
 
+#endif

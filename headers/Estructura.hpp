@@ -42,6 +42,8 @@
 
 typedef unsigned int uint;
 typedef unsigned long int lint;
+#define HEAPSIZE 10000000
+
 
 /**
     @author Luis Suazo
@@ -128,13 +130,20 @@ struct Arista{
 	};
 
 };
+
 struct Expandido{
     uint id;
     double_t f;
 	double_t g;
 	double_t h;
 	double_t key;
+	Expandido* parent; 
+    Expandido* child; 
+    Expandido* left; 
+    Expandido* right; 
 	int heapindex;
+    char mark; 
+    char c;  
 
 	Expandido(uint id, double_t g,double_t h){
 		this->id=id;
@@ -142,7 +151,16 @@ struct Expandido{
 		this->g=g;
 		this->h=h;
 		this->heapindex=0;
-		this->key=(this->f*1000000)+this->h;
+		this->key=this->f*1000000+this->h;
+	}
+
+	void addValues(uint id, double_t g,double_t h){
+		this->id=id;
+		this->f=g+h;
+		this->g=g;
+		this->h=h;
+		this->heapindex=0;
+		this->key=this->f*1000000+this->h;
 	}
 
 	~Expandido(){};
